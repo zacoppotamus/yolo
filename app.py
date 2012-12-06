@@ -22,11 +22,11 @@ def yolo():
     author = result["from_user"]
     madness_json = urllib2.urlopen(url2+urllib2.quote(text.encode("utf-8"))).read()
     p = json.loads(madness_json)
-    madness = 5-p["response"][0]["score"]
+    madness = 5-p["response"][0]["score"] + 1
 
-    return text + "<br><br><b>" + author + "</b> Madness Index: " + str(madness)
-
+    return json.dumps({"madness":madness, "text":text, "author":author})
 
 if __name__ == "__main__":
+    app.debug = True
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)

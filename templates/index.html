@@ -10,7 +10,7 @@
             url: "/yolo",
             success: function(data) {
                 var dec = eval("(" + data + ")");
-                $("#tweet").html(dec.text + "<br/><br/><b>" + dec.author + "</b> Madness index: " + dec.madness);
+                $("#tweet").html(dec.text + "<br/><br/><b>" + dec.author + "</b> Madness index: " + dec.madness + "/5");
                 var madness_lookup = [
                     "#ffffff",
                     "#ffcccc",

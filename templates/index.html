@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    var refreshTweet = setInterval(tweetTimer,10000);
+    function tweetTimer() {
+        $.ajax({
+            url: "/yolo",
+            success: function(data) {
+                $("#tweet").html(data);
+            }
+        });
+    }
+</script>
+<style>
+body {
+    text-align:center;
+    font-family:"Courier New", Courier, monospace;
+}
+
+#container {
+    margin:auto;
+    width:700px;
+}
+
+#logo {
+    width:700px;
+    height:120;
+    font-size:100pt;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:0px;
+}
+
+#tweet {
+    width:500px;
+    height:120px;
+    margin:auto;
+}
+
+#footer {
+    font-size:30px;
+    width:700px;
+    text-align:center;
+    color:#000000;
+}
+
+</style>
+<title>#YOLO - r u Mad?</title>
+</head>
+
+<body>
+<div id="container">
+    <div id="logo">
+        #YOLO
+    </div>
+    <hr/>
+    <div id="footer">R U Mad?</div>
+    <hr/>
+    <div id="tweet">Loading...</div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){ tweetTimer(); });
+</script>
+</body>
+</html>
